@@ -1,0 +1,94 @@
+Bitcoin SV	BCV	#B454FF
+Bitcoin LN	BTC	#78B2DD
+Wrapped BTC	WBTC	#00E1C6
+Litecoin	LTC	#FD9800
+Dogecoin	DOGE	#FF6954
+Bitcoin LN	BTC	#B454FF
+Bitcoin BEP20	BTCB	#00E1C6
+Ripple	XRP	#E79D20
+Bitcoin Cash	BCH	#01677E
+Bitcoin Gold	BTG	#CCA816
+Ethereum	ETH	#753313
+Wrapped ETH	WETH	#006B3D
+Ether Classic	ETC	#F6768D
+Monero	XMR	#01538B
+Polygon	MATIC	#698D21
+Dash	DASH	#FFA443
+Zcash	ZEC	#9DB1CC
+Tether Omni	USDT	#AF2B1E
+TrueUSD	TUSD	#46CFA1
+Pax Dollar	USDP	#B57381
+Dai	DAI	#A03472
+Binance USD	BUSD	#DA70D6
+NEM	XEM	#AEA04A
+NEO	NEO	#49678D
+EOS	EOS	#FE2B2A
+IOTA	MIOTA	#D95F2B
+Cardano	ADA	#6D245B
+Stellar	XLM	#314357
+TRON	TRX	#61AD89
+Waves	WAVES	#E636AB
+OMG Network	OMG	#5062AC
+Verge	XVG	#C2D932
+0x	ZRX	#1BB474
+BinanceCoin BEP2	BNB	#C92051
+ICON	ICX	#820180
+Komodo	KMD	#7F9DD1
+BitTorrent	BTT	#723F3F
+BAT	BAT	#483D8C
+Ontology	ONT	#5ECBE3
+Qtum	QTUM	#F2654A
+Chainlink	LINK	#73C267
+Cosmos	ATOM	#C13327
+Tezos	XTZ	#1EA086
+Polkadot	DOT	#BA56D4
+Uniswap	UNI	#0000D1
+Ravencoin	RVN	#02E600
+Solana	SOL	#AA4D00
+VeChain	VET	#EEDF2A
+Shiba ERC20	SHIB	#704F64
+Algorand	ALGO	#037387
+Maker	MKR	#036CD3
+Avalanche	AVAX	#C84AA8
+VeChain	VET	#05A699
+Yearn.finance	YFI	#E44A44
+Decentraland	MANA	#9574C7
+Terra	LUNA	#AA678B
+NEAR Protocol	NEAR	#7DA3E4
+Cronos	CRO	#E95623
+Toncoin	TON	#913C5F
+Visa/MasterCard	UAH	#F3B93E
+Visa/MasterCard	RUB	#6C6F02
+Visa/MasterCard	USD	#5C299D
+Visa/MasterCard	GBR	#C376FF
+Visa/MasterCard	CNY	#409C8C
+Visa/MasterCard	SEK	#266C26
+Visa/MasterCard	PLN	#CC2E12
+Visa/MasterCard	MDL	#A60916
+Visa/MasterCard	TRY	#0034B9
+Visa/MasterCard	BYN	#8F33C7
+Visa/MasterCard	KZT	#E98C00
+Visa/MasterCard	AMD	#93C52B
+Visa/MasterCard	KGS	#A0197A
+Visa/MasterCard	CAD	#DB3434
+Visa/MasterCard	BGN	#171717
+Visa/MasterCard	HUF	#580082
+Visa/MasterCard	CZK	#1A4340
+Visa/MasterCard	NOK	#B5BA99
+Visa/MasterCard	AZN	#4C5796
+Visa/MasterCard	GEL	#4FC99D
+Visa/MasterCard	UZS	#BEAE19
+Visa/MasterCard	TJS	#AF49D2
+UnionPay Card	CNY	#4598D5
+Bank transfer	BYN	#BEC5E8
+Bank transfer	PLN	#FF8A58
+Bank transfer	THB	#006AE7
+Bank transfer	INR	#75DA97
+Bank transfer	NGN	#B59494
+Bank transfer	IDR	#4200FF
+Bank transfer	BGN	#0B5100
+Bank transfer	AED	#AE2A00
+Bank transfer	JPY	#A100C9
+Bank transfer	HKD	#2E9F54
+Cash	ILS	#7E50DE
+Cash	COP	#115B85
