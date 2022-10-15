@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Services\PaymentService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -20,6 +21,9 @@ class CashbackRequest extends Model
         if(!$this->status || $this->status != request()->status || !$this->id) {
             $this->processed_at = now();
         }
+
+//        $paymentService = new PaymentService();
+//        $paymentService->create();
 
         parent::save($options);
     }
