@@ -144,7 +144,7 @@ return [
         ],
 
         'widgets' => [
-
+            \App\Widgets\GlobalWidget::class,
         ],
 
     ],
@@ -187,11 +187,12 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
-        //'css/custom.css',
+        'admin-style/style.css'
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'admin-style/js/chart.js',
+        'admin-style/js/admin.js',
     ],
 
     'googlemaps' => [

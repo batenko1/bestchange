@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+Artisan::call('optimize:clear');
 Artisan::call('view:clear');
 Artisan::call('cache:clear');
 Artisan::call('config:clear');
@@ -20,6 +21,8 @@ Artisan::call('config:clear');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/get-grafic-users', 'AdminController@getGraficUser');
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -1,0 +1,45 @@
+#saleschart, #leadschart, #profitchart, #costchart {
+    width: 4rem !important;
+    height: 4rem !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 25px;
+    margin: 0;
+    position: relative;
+}
+
+.ms-auto, .mx-auto {
+    margin-left: auto !important;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border: inherit !important;
+    background-clip: border-box;
+    border-radius: 7px;
+    box-shadow: 0 4px 25px 0 rgb(168 180 208 / 10%);
+}
+
+.page-content .col-xs-12.col-sm-6.col-md-4 {
+    width:auto !important;
+    float:none;
+    margin-bottom: 0;
+}
+
+.clearfix.container-fluid.row {
+    display: initial;
+}

@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             ImportTableSeeder::class,
-            CurrencySeeder::class,
-            DirectionSeeder::class
+//            CurrencySeeder::class,
+//            DirectionSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
