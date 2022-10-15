@@ -7,7 +7,7 @@
 #
 # Хост: localhost (MySQL 8.0.30)
 # База данных: bestchange
-# Время формирования: 2022-10-15 05:16:00 +0000
+# Время формирования: 2022-10-15 05:46:22 +0000
 # ************************************************************
 
 
@@ -2046,6 +2046,40 @@ VALUES
 UNLOCK TABLES;
 
 
+# Дамп таблицы cashback_requests
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `cashback_requests`;
+
+CREATE TABLE `cashback_requests` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `processed_at` timestamp NULL DEFAULT NULL,
+  `account_id` int DEFAULT NULL,
+  `exchanger_request_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` double DEFAULT NULL,
+  `status` tinyint DEFAULT '0',
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+LOCK TABLES `cashback_requests` WRITE;
+/*!40000 ALTER TABLE `cashback_requests` DISABLE KEYS */;
+
+INSERT INTO `cashback_requests` (`id`, `created_at`, `updated_at`, `processed_at`, `account_id`, `exchanger_request_id`, `amount`, `status`, `comment`)
+VALUES
+	(1,'2022-10-15 05:34:16','2022-10-15 05:34:54','2022-10-15 05:34:54',1,'re',10,1,'sdfsdf'),
+	(2,'2022-10-15 05:35:44','2022-10-15 05:35:44','2022-10-15 05:35:44',1,'o',5,0,NULL),
+	(3,'2022-10-15 05:35:54','2022-10-15 05:35:54',NULL,1,'o',100,2,'0'),
+	(4,'2022-10-15 05:41:48','2022-10-15 05:41:48',NULL,1,'23',NULL,2,NULL),
+	(5,'2022-10-15 05:44:07','2022-10-15 05:44:07','2022-10-15 05:44:07',1,'999',NULL,2,NULL),
+	(6,'2022-10-15 05:46:04','2022-10-15 05:46:04','2022-10-15 05:46:04',1,'9',9,0,NULL);
+
+/*!40000 ALTER TABLE `cashback_requests` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Дамп таблицы currencies
 # ------------------------------------------------------------
 
@@ -2281,7 +2315,7 @@ CREATE TABLE `data_rows` (
   PRIMARY KEY (`id`),
   KEY `data_rows_data_type_id_foreign` (`data_type_id`),
   CONSTRAINT `data_rows_data_type_id_foreign` FOREIGN KEY (`data_type_id`) REFERENCES `data_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `data_rows` WRITE;
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
@@ -2351,7 +2385,17 @@ VALUES
 	(61,12,'email','text','Почта',0,1,1,0,1,1,'{\"disabled\":true}',6),
 	(62,12,'password','password','Пароль',0,0,0,1,1,1,'{}',7),
 	(63,12,'account_hasmany_account_relationship','relationship','Пользователь что пригласил',0,1,1,0,0,0,'{\"model\":\"App\\\\Account\",\"table\":\"accounts\",\"type\":\"hasMany\",\"column\":\"referrer_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"accounts\",\"pivot\":\"0\",\"taggable\":\"0\"}',8),
-	(64,1,'email_verified_at','timestamp','Email Verified At',0,1,1,1,1,1,'{}',6);
+	(64,1,'email_verified_at','timestamp','Email Verified At',0,1,1,1,1,1,'{}',6),
+	(65,13,'id','text','Id',1,0,0,0,0,0,'{}',1),
+	(66,13,'created_at','timestamp','Дата создания',0,1,0,0,0,0,'{}',2),
+	(67,13,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',3),
+	(68,13,'processed_at','timestamp','Время изменение статуса',0,1,0,0,0,0,'{}',4),
+	(69,13,'account_id','select_dropdown','Пользователь',0,0,0,1,1,1,'{\"relationship\":{\"key\":\"id\",\"label\":\"name\"}}',5),
+	(70,13,'exchanger_request_id','text','Пока не знаю',1,1,1,1,1,1,'{}',6),
+	(71,13,'amount','text','Количество',0,1,1,1,1,1,'{}',7),
+	(72,13,'status','select_dropdown','Статус',0,1,1,1,1,1,'{\"options\":{\"0\":\"New\",\"1\":\"Approved\",\"2\":\"Cancelled\"}}',8),
+	(73,13,'comment','text_area','Комментарий',0,1,1,1,1,1,'{}',9),
+	(74,13,'cashback_request_belongsto_account_relationship','relationship','Пользователь',0,1,1,0,0,0,'{\"model\":\"App\\\\Account\",\"table\":\"accounts\",\"type\":\"belongsTo\",\"column\":\"account_id\",\"key\":\"id\",\"label\":\"email\",\"pivot_table\":\"accounts\",\"pivot\":\"0\",\"taggable\":\"0\"}',10);
 
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2381,7 +2425,7 @@ CREATE TABLE `data_types` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `data_types_name_unique` (`name`),
   UNIQUE KEY `data_types_slug_unique` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `data_types` WRITE;
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
@@ -2396,7 +2440,8 @@ VALUES
 	(9,'exchangers','exchangers','Обменник','Обменники',NULL,'App\\Models\\Exchanger',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2022-10-06 11:59:24','2022-10-06 11:59:24'),
 	(10,'rates','rates','Оценка','Оценки',NULL,'App\\Models\\Rate',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2022-10-06 12:00:35','2022-10-06 12:25:26'),
 	(11,'reviews','reviews','Отзыв','Отзывы',NULL,'App\\Review',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null}','2022-10-06 12:07:53','2022-10-06 12:07:53'),
-	(12,'accounts','accounts','Пользователь','Пользователи',NULL,'App\\Account',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2022-10-14 12:07:49','2022-10-15 04:59:36');
+	(12,'accounts','accounts','Пользователь','Пользователи',NULL,'App\\Account',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2022-10-14 12:07:49','2022-10-15 04:59:36'),
+	(13,'cashback_requests','cashback-requests','Заявка на кешбек','Заявки на кешбек',NULL,'App\\CashbackRequest',NULL,NULL,NULL,1,0,'{\"order_column\":\"status\",\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}','2022-10-15 05:30:57','2022-10-15 05:39:06');
 
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3491,7 +3536,7 @@ CREATE TABLE `menu_items` (
   PRIMARY KEY (`id`),
   KEY `menu_items_menu_id_foreign` (`menu_id`),
   CONSTRAINT `menu_items_menu_id_foreign` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `menu_items` WRITE;
 /*!40000 ALTER TABLE `menu_items` DISABLE KEYS */;
@@ -3511,7 +3556,8 @@ VALUES
 	(13,1,'Обменники','','_self','voyager-photos',NULL,NULL,17,'2022-10-06 11:59:24','2022-10-06 11:59:24','voyager.exchangers.index',NULL),
 	(14,1,'Оценки','','_self','voyager-basket',NULL,NULL,18,'2022-10-06 12:00:35','2022-10-06 12:00:35','voyager.rates.index',NULL),
 	(15,1,'Отзывы','','_self','voyager-group',NULL,NULL,19,'2022-10-06 12:07:53','2022-10-06 12:07:53','voyager.reviews.index',NULL),
-	(16,1,'Пользователи','','_self','voyager-credit-cards',NULL,NULL,20,'2022-10-14 12:07:49','2022-10-14 12:07:49','voyager.accounts.index',NULL);
+	(16,1,'Пользователи','','_self','voyager-credit-cards',NULL,NULL,20,'2022-10-14 12:07:49','2022-10-14 12:07:49','voyager.accounts.index',NULL),
+	(18,1,'Заявки на кешбек','','_self','voyager-sun',NULL,NULL,21,'2022-10-15 05:30:57','2022-10-15 05:30:57','voyager.cashback-requests.index',NULL);
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3680,7 +3726,12 @@ VALUES
 	(52,1),
 	(53,1),
 	(54,1),
-	(55,1);
+	(55,1),
+	(56,1),
+	(57,1),
+	(58,1),
+	(59,1),
+	(60,1);
 
 /*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -3699,7 +3750,7 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `permissions_key_index` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `permissions` WRITE;
 /*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
@@ -3760,7 +3811,12 @@ VALUES
 	(52,'read_accounts','accounts','2022-10-14 12:07:49','2022-10-14 12:07:49'),
 	(53,'edit_accounts','accounts','2022-10-14 12:07:49','2022-10-14 12:07:49'),
 	(54,'add_accounts','accounts','2022-10-14 12:07:49','2022-10-14 12:07:49'),
-	(55,'delete_accounts','accounts','2022-10-14 12:07:49','2022-10-14 12:07:49');
+	(55,'delete_accounts','accounts','2022-10-14 12:07:49','2022-10-14 12:07:49'),
+	(56,'browse_cashback_requests','cashback_requests','2022-10-15 05:30:57','2022-10-15 05:30:57'),
+	(57,'read_cashback_requests','cashback_requests','2022-10-15 05:30:57','2022-10-15 05:30:57'),
+	(58,'edit_cashback_requests','cashback_requests','2022-10-15 05:30:57','2022-10-15 05:30:57'),
+	(59,'add_cashback_requests','cashback_requests','2022-10-15 05:30:57','2022-10-15 05:30:57'),
+	(60,'delete_cashback_requests','cashback_requests','2022-10-15 05:30:57','2022-10-15 05:30:57');
 
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 UNLOCK TABLES;
