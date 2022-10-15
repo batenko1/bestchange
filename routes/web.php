@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/get-grafic-users', 'AdminController@getGraficUser');
+Route::get('/get-new-requests', 'AdminController@getNewRequests');
 
 
 Route::group(['prefix' => 'admin'], function () {

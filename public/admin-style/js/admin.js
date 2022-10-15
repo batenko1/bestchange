@@ -1,3 +1,14 @@
+$.ajax({
+    type: 'get',
+    url: '/get-new-requests',
+    success: function (result) {
+
+        $( "span:contains('Заявки')" ).html('Заявки <span class="badge">'+ result +'</span>')
+
+    }
+})
+
+
 // SALES CHART
 var ctx = document.getElementById('saleschart').getContext('2d');
 ctx.height = 10;

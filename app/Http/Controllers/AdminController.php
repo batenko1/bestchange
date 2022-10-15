@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\CashbackRequest;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -20,5 +21,11 @@ class AdminController extends Controller
 
         return compact('days', 'countUsers');
 
+    }
+
+    public function getNewRequests() {
+        $cashbackRequests = CashbackRequest::where('status', 0)->count();
+
+        return $cashbackRequests;
     }
 }
