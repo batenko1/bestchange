@@ -7,7 +7,7 @@
 #
 # Хост: localhost (MySQL 8.0.30)
 # База данных: bestchange
-# Время формирования: 2022-10-15 05:46:22 +0000
+# Время формирования: 2022-10-15 06:21:12 +0000
 # ************************************************************
 
 
@@ -3557,7 +3557,7 @@ VALUES
 	(14,1,'Оценки','','_self','voyager-basket',NULL,NULL,18,'2022-10-06 12:00:35','2022-10-06 12:00:35','voyager.rates.index',NULL),
 	(15,1,'Отзывы','','_self','voyager-group',NULL,NULL,19,'2022-10-06 12:07:53','2022-10-06 12:07:53','voyager.reviews.index',NULL),
 	(16,1,'Пользователи','','_self','voyager-credit-cards',NULL,NULL,20,'2022-10-14 12:07:49','2022-10-14 12:07:49','voyager.accounts.index',NULL),
-	(18,1,'Заявки на кешбек','','_self','voyager-sun',NULL,NULL,21,'2022-10-15 05:30:57','2022-10-15 05:30:57','voyager.cashback-requests.index',NULL);
+	(18,1,'Заявки','','_self','voyager-sun',NULL,NULL,21,'2022-10-15 05:30:57','2022-10-15 05:30:57','voyager.cashback-requests.index',NULL);
 
 /*!40000 ALTER TABLE `menu_items` ENABLE KEYS */;
 UNLOCK TABLES;
